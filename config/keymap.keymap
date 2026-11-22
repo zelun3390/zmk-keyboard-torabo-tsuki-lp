@@ -6,8 +6,8 @@
  *   S keys used:  row1: 13-17 | 18-22   row2: 25-29 | 32-36
  *                 row3: 39-43 44 | 45 46-50   row4: 53 54 55 [56 57 58] | [59 60 61] 62 63 64
  * - The same HID codes as the B1 Pro are sent, so output on a JIS-configured PC is identical.
- * - Layer order: 0 base / 1 mouse (trackball, kept from the stock firmware) / 2 nav (B1 Fn1)
- *                3 symbols & numbers (B1 Fn2) / 4 F-keys & BT (B1 Fn3) / 5-7 reserved for ZMK Studio
+ * - Layer order (same numbers as B1 Pro): 0 base / 1 nav (B1 Fn1) / 2 symbols & numbers (B1 Fn2)
+ *                3 F-keys & BT (B1 Fn3) / 4 mouse (hold ;) / 5-7 reserved for ZMK Studio
  */
 
 #include <behaviors.dtsi>
@@ -17,10 +17,10 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
-#define MOUSE 1
-#define NAV 2
-#define SYM 3
-#define FN 4
+#define NAV 1
+#define SYM 2
+#define FN 3
+#define MOUSE 4
 
 / {
     keymap {
@@ -38,20 +38,8 @@
             >;
         };
 
-        // ---------------------------------------------------------------- 1: mouse (same as stock firmware)
+        // ---------------------------------------------------------------- 1: nav (B1 Fn1 / hold A)
         layer_1 {
-            display-name = "Mouse";
-            bindings = <
-&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
-            >;
-        };
-
-        // ---------------------------------------------------------------- 2: nav (B1 Fn1 / hold A)
-        layer_2 {
             display-name = "Nav";
             bindings = <
 &trans  &trans  &trans     &trans       &trans      &trans                     &trans     &trans      &trans      &trans   &trans    &trans
@@ -62,8 +50,8 @@
             >;
         };
 
-        // ---------------------------------------------------------------- 3: symbols & numbers (B1 Fn2 / hold Tab)
-        layer_3 {
+        // ---------------------------------------------------------------- 2: symbols & numbers (B1 Fn2 / hold left middle thumb)
+        layer_2 {
             display-name = "Sym";
             bindings = <
 &trans  &trans     &trans  &trans  &trans  &trans                         &trans          &trans      &trans      &trans      &trans         &trans
@@ -74,8 +62,8 @@
             >;
         };
 
-        // ---------------------------------------------------------------- 4: F-keys & Bluetooth (B1 Fn3)
-        layer_4 {
+        // ---------------------------------------------------------------- 3: F-keys & Bluetooth (B1 Fn3)
+        layer_3 {
             display-name = "Fn";
             bindings = <
 &trans  &trans   &trans   &trans   &trans   &trans                      &trans        &trans          &trans         &trans          &trans  &trans
@@ -83,6 +71,18 @@
 &trans  &kp F5   &kp F6   &kp F7   &kp F8   &trans  &trans    &trans    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_CLR      &trans  &trans
 &trans  &kp F1   &kp F2   &kp F3   &kp F4   &trans  &trans    &trans    &out OUT_USB  &out OUT_BLE    &bt BT_NXT     &trans          &trans  &trans
 &trans  &trans   &trans   &trans   &trans   &trans  &trans    &trans    &trans        &trans          &trans         &trans          &trans  &trans
+            >;
+        };
+
+        // ---------------------------------------------------------------- 4: mouse (hold ;)
+        layer_4 {
+            display-name = "Mouse";
+            bindings = <
+&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
         };
 
