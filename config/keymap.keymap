@@ -34,7 +34,7 @@
 &none      &kp Q      &kp W     &kp E     &kp R     &kp T                                            &kp Y    &kp U     &kp I      &kp O    &kp P    &none
 &none      &lt NAV A  &kp S     &kp D     &kp F     &kp G     &none                &none             &kp H    &kp J     &kp K      &kp L    &kp SEMI &none
 &none      &kp Z      &kp X     &kp C     &kp V     &kp B     &kp LANG2            &kp LANG1         &kp N    &kp M     &kp COMMA  &kp DOT  &kp FSLH &none
-&none      &kp LCTRL  &kp LGUI  &kp LALT  &lt SYM TAB  &mt LSHIFT SPACE  &mt LCTRL GRAVE  &mt LCTRL GRAVE  &mt LCTRL GRAVE  &kp BSPC  &kp ESC   &mo FN   &mo NAV  &none
+&none      &kp LCTRL  &kp LGUI  &kp LALT  &lt SYM TAB  &mt LSHIFT SPACE  &mt LCTRL GRAVE  &mt LSHIFT SPACE  &mt LCTRL GRAVE  &kp BSPC  &kp ESC   &mo FN   &mo NAV  &none
             >;
         };
 
